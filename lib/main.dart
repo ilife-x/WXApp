@@ -21,8 +21,8 @@ class _MyAppState extends State<MyApp> {
         ),
         // body: Siglechild(str: str),
         // body: ListViewBuilder(),
-        // body: ListViewSeparate(),
-        body: WuxianListView(),
+        body: ListViewSeparate(),
+        // body: WuxianListView(),
       ),
     );
   }
