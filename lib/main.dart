@@ -22,8 +22,162 @@ class _MyAppState extends State<MyApp> {
         // body: Siglechild(str: str),
         // body: ListViewBuilder(),
         // body: ListViewSeparate(),
-        body: WuxianListView(),
+        // body: WuxianListView(),
+        // body: NomalGridView(),
+        // body: CountGridView(),
+        // body: NomalGridViewExtend(),
+        // body: ExtendGridView(),
+        // body: BuilderGridView(),
+        body: CustomScrollViewSliver(),
       ),
+    );
+  }
+}
+
+class CustomScrollViewSliver extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          ///应用程序栏是否应该在滚动视图开始时保持可见。
+          pinned: true,
+          expandedHeight: 250,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text("demo"),
+            background: Image.asset(
+              "lib/images/avatar.png",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.all(8.0),
+          sliver: SliverGrid(
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext contex, int index) {
+                return Container(
+                  color: Colors.cyan[100 * ((index % 9) + 1)],
+                  child: Text("$index"),
+                  alignment: Alignment.center,
+                );
+              }, childCount: 10),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 4,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              )),
+        ),
+        SliverFixedExtentList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                color: Colors.cyan[100 * ((index % 9) + 1)],
+                child: Text("$index"),
+              );
+            }, childCount: 20),
+            itemExtent: 50)
+      ],
+    );
+  }
+}
+
+class BuilderGridView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, childAspectRatio: 1.0),
+      itemBuilder: (BuildContext context, int index) {
+        return Icon(Icons.bike_scooter);
+      },
+      itemCount: 20,
+    );
+  }
+}
+
+class ExtendGridView extends StatelessWidget {
+  const ExtendGridView({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return GridView.extent(
+      maxCrossAxisExtent: 120,
+      childAspectRatio: 1.0,
+      children: [
+        Icon(Icons.ac_unit),
+        Icon(Icons.baby_changing_station),
+        Icon(Icons.bike_scooter),
+        Icon(Icons.mobile_friendly),
+        Icon(Icons.home),
+        Icon(Icons.snooze)
+      ],
+    );
+  }
+}
+
+class NomalGridViewExtend extends StatelessWidget {
+  const NomalGridViewExtend({Key, key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView(
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 120, childAspectRatio: 1),
+      children: [
+        Icon(Icons.ac_unit),
+        Icon(Icons.baby_changing_station),
+        Icon(Icons.bike_scooter),
+        Icon(Icons.mobile_friendly),
+        Icon(Icons.home),
+        Icon(Icons.snooze)
+      ],
+    );
+  }
+}
+
+class CountGridView extends StatelessWidget {
+  const CountGridView({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 3,
+      childAspectRatio: 1,
+      children: [
+        Icon(Icons.ac_unit),
+        Icon(Icons.baby_changing_station),
+        Icon(Icons.bike_scooter),
+        Icon(Icons.mobile_friendly),
+        Icon(Icons.home),
+        Icon(Icons.snooze)
+      ],
+    );
+  }
+}
+
+class NomalGridView extends StatelessWidget {
+  const NomalGridView({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, childAspectRatio: 1),
+      children: [
+        Icon(Icons.ac_unit),
+        Icon(Icons.baby_changing_station),
+        Icon(Icons.bike_scooter),
+        Icon(Icons.mobile_friendly),
+        Icon(Icons.home),
+        Icon(Icons.snooze)
+      ],
     );
   }
 }
