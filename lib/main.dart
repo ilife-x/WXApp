@@ -30,7 +30,29 @@ class _MyAppState extends State<MyApp> {
         // body: ExtendGridView(),
         // body: BuilderGridView(),
         // body: CustomScrollViewSliver(),
-        body: ScrollcontrollerTestRoute(),
+        // body: ScrollcontrollerTestRoute(),
+        body: TestButton(),
+        // body: NotificationListener(child: Stack(alignment: Alignment.center,),
+      ),
+    );
+  }
+}
+
+class TestButton extends StatelessWidget {
+  const TestButton({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: ListTile(
+          title: Text("click"),
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext context) {
+              return ScrollcontrollerTestRoute();
+            }));
+          },
+        ),
       ),
     );
   }
