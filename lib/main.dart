@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wxapp/my_drawer.dart';
 import 'scrollController_testRoute.dart';
 
 void main(List<String> args) {
@@ -10,16 +11,102 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   String str = "abcdefghigklmnopqrstuvwxyz";
+
+  List tabs = ["新闻", "历史", "图片"];
+  TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: tabs.length, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'myapp',
       home: Scaffold(
         appBar: AppBar(
-          title: Text("myApp"),
+            title: Text("myApp"),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.directions_bike),
+                tooltip: "hhh",
+                onPressed: () {},
+              ),
+            ],
+            leading: Builder(builder: (BuildContext context) {
+              return IconButton(
+                  icon: Icon(Icons.leak_add),
+                  tooltip: "aaa",
+                  //通过Scaffold.of(context)可以获取父级最近的Scaffold 组件的State对象。
+                  onPressed: () => Scaffold.of(context).openDrawer());
+            }),
+            bottom: TabBar(
+              controller: _tabController,
+              tabs: tabs
+                  .map((e) => Tab(
+                        text: e,
+                      ))
+                  .toList(),
+              onTap: (int index) {
+                print("点击了$index");
+              },
+            )),
+
+        body: TabBarView(
+            controller: _tabController,
+            children: tabs.map((e) {
+              return Container(
+                alignment: Alignment.center,
+                child: Container(
+                  child: Text(
+                    e,
+                    textScaleFactor: 5,
+                  ),
+                ),
+              );
+            }).toList()),
+
+        drawer: MyDrawer(),
+
+        //底部导航
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
+          shape: CircularNotchedRectangle(),
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {},
+              ),
+              SizedBox(),
+              IconButton(
+                icon: Icon(Icons.business),
+                onPressed: () {},
+              ),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          ),
         ),
+
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print("点击中间的洞");
+          },
+          child: Icon(Icons.cloud_circle),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        endDrawer: Drawer(),
+        //是否允许手势侧滑 默认yes
+        drawerEnableOpenDragGesture: true,
+
         // body: Siglechild(str: str),
         // body: ListViewBuilder(),
         // body: ListViewSeparate(),
@@ -30,7 +117,7 @@ class _MyAppState extends State<MyApp> {
         // body: ExtendGridView(),
         // body: BuilderGridView(),
         // body: CustomScrollViewSliver(),
-        body: ScrollcontrollerTestRoute(),
+        // body: ScrollcontrollerTestRoute(),
       ),
     );
   }
@@ -94,7 +181,7 @@ class BuilderGridView extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3, childAspectRatio: 1.0),
       itemBuilder: (BuildContext context, int index) {
-        return Icon(Icons.bike_scooter);
+        return Icon(Icons.directions_bike);
       },
       itemCount: 20,
     );
@@ -110,9 +197,9 @@ class ExtendGridView extends StatelessWidget {
       childAspectRatio: 1.0,
       children: [
         Icon(Icons.ac_unit),
-        Icon(Icons.baby_changing_station),
-        Icon(Icons.bike_scooter),
-        Icon(Icons.mobile_friendly),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
         Icon(Icons.home),
         Icon(Icons.snooze)
       ],
@@ -130,9 +217,9 @@ class NomalGridViewExtend extends StatelessWidget {
           maxCrossAxisExtent: 120, childAspectRatio: 1),
       children: [
         Icon(Icons.ac_unit),
-        Icon(Icons.baby_changing_station),
-        Icon(Icons.bike_scooter),
-        Icon(Icons.mobile_friendly),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
         Icon(Icons.home),
         Icon(Icons.snooze)
       ],
@@ -152,9 +239,9 @@ class CountGridView extends StatelessWidget {
       childAspectRatio: 1,
       children: [
         Icon(Icons.ac_unit),
-        Icon(Icons.baby_changing_station),
-        Icon(Icons.bike_scooter),
-        Icon(Icons.mobile_friendly),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
         Icon(Icons.home),
         Icon(Icons.snooze)
       ],
@@ -174,9 +261,9 @@ class NomalGridView extends StatelessWidget {
           crossAxisCount: 3, childAspectRatio: 1),
       children: [
         Icon(Icons.ac_unit),
-        Icon(Icons.baby_changing_station),
-        Icon(Icons.bike_scooter),
-        Icon(Icons.mobile_friendly),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
+        Icon(Icons.directions_bike),
         Icon(Icons.home),
         Icon(Icons.snooze)
       ],
