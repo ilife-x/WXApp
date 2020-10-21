@@ -7,14 +7,19 @@ class ListViewBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 30,
-      itemExtent: 50,
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          title: Text("第 $index 行"),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("listView Builder"),
+      ),
+      body: ListView.builder(
+        itemCount: 30,
+        itemExtent: 50,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text("第 $index 行"),
+          );
+        },
+      ),
     );
   }
 }

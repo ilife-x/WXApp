@@ -5,17 +5,22 @@ class NomalGridViewExtend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 120, childAspectRatio: 1),
-      children: [
-        Icon(Icons.ac_unit),
-        Icon(Icons.directions_bike),
-        Icon(Icons.directions_bike),
-        Icon(Icons.directions_bike),
-        Icon(Icons.home),
-        Icon(Icons.snooze)
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("nomal extend grid view"),
+      ),
+      body: GridView(
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 120, childAspectRatio: 1),
+        children: [
+          Icon(Icons.ac_unit),
+          Icon(Icons.directions_bike),
+          Icon(Icons.directions_bike),
+          Icon(Icons.directions_bike),
+          Icon(Icons.home),
+          Icon(Icons.snooze)
+        ],
+      ),
     );
   }
 }

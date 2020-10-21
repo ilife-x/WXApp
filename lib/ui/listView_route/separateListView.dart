@@ -15,19 +15,24 @@ class ListViewSeparate extends StatelessWidget {
       color: Colors.red,
     );
 
-    return ListView.separated(
-      itemBuilder: (BuildContext contex, int index) {
-        return Container(
-          height: 30,
-          child: ListTile(
-            title: Text("第 $index 行"),
-          ),
-        );
-      },
-      separatorBuilder: (BuildContext contex, int index) {
-        return index % 2 == 0 ? diver1 : diver2;
-      },
-      itemCount: 30,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("seperateListView"),
+      ),
+      body: ListView.separated(
+        itemBuilder: (BuildContext contex, int index) {
+          return Container(
+            height: 30,
+            child: ListTile(
+              title: Text("第 $index 行"),
+            ),
+          );
+        },
+        separatorBuilder: (BuildContext contex, int index) {
+          return index % 2 == 0 ? diver1 : diver2;
+        },
+        itemCount: 30,
+      ),
     );
   }
 }

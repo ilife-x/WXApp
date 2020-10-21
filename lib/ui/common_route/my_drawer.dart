@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wxapp/main.dart';
 
 class MyDrawer extends StatelessWidget {
   @override

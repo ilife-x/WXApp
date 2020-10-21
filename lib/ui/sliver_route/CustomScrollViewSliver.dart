@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class CustomScrollViewSliver extends StatelessWidget {
   @override
@@ -6,9 +7,18 @@ class CustomScrollViewSliver extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          title: Text(
+            "sliver scroll",
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.blue,
+                backgroundColor: Colors.green[100]),
+          ),
+
           ///应用程序栏是否应该在滚动视图开始时保持可见。
           pinned: true,
           expandedHeight: 250,
+          backgroundColor: Colors.white,
           flexibleSpace: FlexibleSpaceBar(
             title: Text("demo"),
             background: Image.asset(
@@ -24,7 +34,11 @@ class CustomScrollViewSliver extends StatelessWidget {
                   SliverChildBuilderDelegate((BuildContext contex, int index) {
                 return Container(
                   color: Colors.cyan[100 * ((index % 9) + 1)],
-                  child: Text("$index"),
+                  child: Text(
+                    "$index",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 15),
+                  ),
                   alignment: Alignment.center,
                 );
               }, childCount: 10),

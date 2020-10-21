@@ -7,17 +7,22 @@ class CountGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 3,
-      childAspectRatio: 1,
-      children: [
-        Icon(Icons.ac_unit),
-        Icon(Icons.directions_bike),
-        Icon(Icons.directions_bike),
-        Icon(Icons.directions_bike),
-        Icon(Icons.home),
-        Icon(Icons.snooze)
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('count gridview'),
+      ),
+      body: GridView.count(
+        crossAxisCount: 3,
+        childAspectRatio: 1,
+        children: [
+          Icon(Icons.ac_unit),
+          Icon(Icons.directions_bike),
+          Icon(Icons.directions_bike),
+          Icon(Icons.directions_bike),
+          Icon(Icons.home),
+          Icon(Icons.snooze)
+        ],
+      ),
     );
   }
 }
