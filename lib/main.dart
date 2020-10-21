@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wxapp/ui/Refresh/Refresh.dart';
 import 'package:wxapp/ui/common_route/my_drawer.dart';
 import 'package:wxapp/ui/common_route/tabBarRoute.dart';
 import 'package:wxapp/ui/gridView_route/builderGridView.dart';
@@ -41,6 +42,7 @@ class _MyAppState extends State<MyApp> {
   CustomScrollViewSliver _customScrollViewSliver = CustomScrollViewSliver();
   ScrollcontrollerTestRoute _scrollcontrollerTestRoute =
       ScrollcontrollerTestRoute();
+  PullToRefreshRoute _pullToRefreshRoute = PullToRefreshRoute();
 
   List pageList = <Widget>[];
 
@@ -60,6 +62,7 @@ class _MyAppState extends State<MyApp> {
     pageList.add(_myDrawer);
     pageList.add(_customScrollViewSliver);
     pageList.add(_scrollcontrollerTestRoute);
+    pageList.add(_pullToRefreshRoute);
   }
 
   @override

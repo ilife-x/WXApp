@@ -25,31 +25,69 @@ class _PullToRefreshRouteState extends State<PullToRefreshRoute> {
     if (mounted) {
       setState(() {});
     }
+    //结束刷新
     _refreshController.loadComplete();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('刷新'),
+        ),
         body: SmartRefresher(
-      controller: _refreshController,
-      enablePullDown: true,
-      enablePullUp: true,
-      header: WaterDropHeader(),
-      footer: CustomFooter(
-        builder: (BuildContext context, LoadStatus mode) {
-          Widget body;
-          if (mode == LoadStatus.idle) {
-            body = Text("上拉加载");
-          } else if (mode == LoadStatus.loading) {
-            body = CupertinoActivityIndicator();
-          }
-          return Container(
-            height: 55,
-            child: body,
-          );
-        },
-      ),
-    ));
+          controller: _refreshController,
+          enablePullDown: true,
+          enablePullUp: true,
+          header: WaterDropHeader(),
+          footer: CustomFooter(
+            builder: (BuildContext context, LoadStatus mode) {
+              Widget body;
+
+              ///闲置状态
+              if (mode == LoadStatus.idle) {
+                body = Text("上拉加载");
+              }
+
+              ///加载状态
+              else if (mode == LoadStatus.loading) {
+                body = CupertinoActivityIndicator();
+              }
+
+              ///可以加载
+              else if (mode == LoadStatus.canLoading) {
+                body = Text('relese to load more');
+              }
+
+              ///加载失败
+              else if (mode == LoadStatus.failed) {
+                body = Text('load faild,click retry!');
+              }
+
+              /// 其他情况
+              else {
+                body = Text('no more data');
+              }
+              //返回footer组件
+              return Container(
+                height: 55,
+                child: body,
+              );
+            },
+          ),
+          onLoading: _onLoading,
+          onRefresh: _onRefresh,
+          child: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: Center(
+                  child: Text(items[index]),
+                ),
+              );
+            },
+            itemCount: items.length,
+            itemExtent: 100.0,
+          ),
+        ));
   }
 }
