@@ -31,26 +31,25 @@ class _PullToRefreshRouteState extends State<PullToRefreshRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SmartRefresher(
-        controller: _refreshController,
-        enablePullDown: true,
-        enablePullUp: true,
-        header: WaterDropHeader(),
-        footer: CustomFooter(builder: (BuildContext context, LoadStatus mode){
-          
+        body: SmartRefresher(
+      controller: _refreshController,
+      enablePullDown: true,
+      enablePullUp: true,
+      header: WaterDropHeader(),
+      footer: CustomFooter(
+        builder: (BuildContext context, LoadStatus mode) {
           Widget body;
-          if(mode == LoadStatus.idle){
+          if (mode == LoadStatus.idle) {
             body = Text("上拉加载");
-          }
-          else if(mode == LoadStatus.loading){
+          } else if (mode == LoadStatus.loading) {
             body = CupertinoActivityIndicator();
           }
           return Container(
             height: 55,
             child: body,
-            );
+          );
         },
-        ),
-    );
+      ),
+    ));
   }
 }
