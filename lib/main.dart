@@ -13,6 +13,10 @@ import 'package:wxapp/ui/listView_route/separateListView.dart';
 import 'package:wxapp/ui/listView_route/sigleListView.dart';
 import 'package:wxapp/ui/sliver_route/CustomScrollViewSliver.dart';
 import 'package:wxapp/ui/sliver_route/scrollController_testRoute.dart';
+import 'package:wxapp/ui/BaseWidget/ButtonStyle.dart';
+
+import 'ui/BaseWidget/TextStyle.dart';
+import 'ui/BaseWidget/ImageRoute.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -43,7 +47,11 @@ class _MyAppState extends State<MyApp> {
   ScrollcontrollerTestRoute _scrollcontrollerTestRoute =
       ScrollcontrollerTestRoute();
   PullToRefreshRoute _pullToRefreshRoute = PullToRefreshRoute();
+  TextStyleRoute _textStyleRoute = TextStyleRoute();
+  ButtonStyleRoute _buttonStyleRoute = ButtonStyleRoute();
+  ImageRoute _imageRoute = ImageRoute();
 
+//widget 数组
   List pageList = <Widget>[];
 
   @override
@@ -63,6 +71,9 @@ class _MyAppState extends State<MyApp> {
     pageList.add(_customScrollViewSliver);
     pageList.add(_scrollcontrollerTestRoute);
     pageList.add(_pullToRefreshRoute);
+    pageList.add(_textStyleRoute);
+    pageList.add(_buttonStyleRoute);
+    pageList.add(_imageRoute);
   }
 
   @override
