@@ -18,6 +18,7 @@ import 'package:wxapp/ui/BaseWidget/ButtonStyle.dart';
 import 'ui/BaseWidget/SwichAndcheckBoxRoute.dart';
 import 'ui/BaseWidget/TextStyle.dart';
 import 'ui/BaseWidget/ImageRoute.dart';
+import 'ui/BaseWidget/TextfieldAndFormRoute.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -52,6 +53,7 @@ class _MyAppState extends State<MyApp> {
   ButtonStyleRoute _buttonStyleRoute = ButtonStyleRoute();
   ImageRoute _imageRoute = ImageRoute();
   SwitchAndCheckboxroute _switchAndCheckboxroute = SwitchAndCheckboxroute();
+  TextfieldAndFormRoute _textfieldAndFormRoute = TextfieldAndFormRoute();
 
 //widget 数组
   List pageList = <Widget>[];
@@ -77,6 +79,7 @@ class _MyAppState extends State<MyApp> {
     pageList.add(_buttonStyleRoute);
     pageList.add(_imageRoute);
     pageList.add(_switchAndCheckboxroute);
+    pageList.add(_textfieldAndFormRoute);
   }
 
   @override
