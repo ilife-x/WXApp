@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class TextfieldAndFormRoute extends StatefulWidget {
+class TextFieldRoute extends StatefulWidget {
   @override
-  _TextfieldAndFormRouteState createState() => _TextfieldAndFormRouteState();
+  _TextFieldRouteState createState() => _TextFieldRouteState();
 }
 
-class _TextfieldAndFormRouteState extends State<TextfieldAndFormRoute> {
+class _TextFieldRouteState extends State<TextFieldRoute> {
   TextEditingController _controller;
   FocusNode _focusNode1 = FocusNode();
   FocusNode _focusNode2 = FocusNode();
@@ -83,6 +83,7 @@ class _TextfieldAndFormRouteState extends State<TextfieldAndFormRoute> {
                     child: Text('移动焦点'),
                     onPressed: () {
                       if (_focusNode1.hasFocus) {
+                        //切换焦点
                         FocusScope.of(context).requestFocus(_focusNode2);
                       } else {
                         FocusScope.of(context).requestFocus(_focusNode1);

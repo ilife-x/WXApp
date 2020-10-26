@@ -15,10 +15,11 @@ import 'package:wxapp/ui/sliver_route/CustomScrollViewSliver.dart';
 import 'package:wxapp/ui/sliver_route/scrollController_testRoute.dart';
 import 'package:wxapp/ui/BaseWidget/ButtonStyle.dart';
 
+import 'ui/BaseWidget/FormTestRoute.dart';
 import 'ui/BaseWidget/SwichAndcheckBoxRoute.dart';
 import 'ui/BaseWidget/TextStyle.dart';
 import 'ui/BaseWidget/ImageRoute.dart';
-import 'ui/BaseWidget/TextfieldAndFormRoute.dart';
+import 'ui/BaseWidget/TextFieldRoute.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -53,7 +54,8 @@ class _MyAppState extends State<MyApp> {
   ButtonStyleRoute _buttonStyleRoute = ButtonStyleRoute();
   ImageRoute _imageRoute = ImageRoute();
   SwitchAndCheckboxroute _switchAndCheckboxroute = SwitchAndCheckboxroute();
-  TextfieldAndFormRoute _textfieldAndFormRoute = TextfieldAndFormRoute();
+  TextFieldRoute _textfieldAndFormRoute = TextFieldRoute();
+  FormTestRoute _formTestRoute = FormTestRoute();
 
 //widget 数组
   List pageList = <Widget>[];
@@ -80,6 +82,7 @@ class _MyAppState extends State<MyApp> {
     pageList.add(_imageRoute);
     pageList.add(_switchAndCheckboxroute);
     pageList.add(_textfieldAndFormRoute);
+    pageList.add(_formTestRoute);
   }
 
   @override
