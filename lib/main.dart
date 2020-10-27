@@ -16,6 +16,7 @@ import 'package:wxapp/ui/sliver_route/scrollController_testRoute.dart';
 import 'package:wxapp/ui/BaseWidget/ButtonStyle.dart';
 
 import 'ui/BaseWidget/FormTestRoute.dart';
+import 'ui/BaseWidget/GraditenRoute.dart';
 import 'ui/BaseWidget/SwichAndcheckBoxRoute.dart';
 import 'ui/BaseWidget/TextStyle.dart';
 import 'ui/BaseWidget/ImageRoute.dart';
@@ -56,6 +57,7 @@ class _MyAppState extends State<MyApp> {
   SwitchAndCheckboxroute _switchAndCheckboxroute = SwitchAndCheckboxroute();
   TextFieldRoute _textfieldAndFormRoute = TextFieldRoute();
   FormTestRoute _formTestRoute = FormTestRoute();
+  GrandientRoute _grandientRoute = GrandientRoute();
 
 //widget 数组
   List pageList = <Widget>[];
@@ -83,6 +85,7 @@ class _MyAppState extends State<MyApp> {
     pageList.add(_switchAndCheckboxroute);
     pageList.add(_textfieldAndFormRoute);
     pageList.add(_formTestRoute);
+    pageList.add(_grandientRoute);
   }
 
   @override
