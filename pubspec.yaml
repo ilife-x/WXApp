@@ -32,6 +32,7 @@ dependencies:
   
   #刷新控件（上拉加载，下拉刷新）
   pull_to_refresh: ^1.6.1
+  provider: ^4.3.2+2
 
 
 dev_dependencies:
