@@ -51,17 +51,31 @@ class GranditenButton extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: DefaultTextStyle(
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    child: child),
+                child: DefaultStyle(child: child),
               ),
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+class DefaultStyle extends StatelessWidget {
+  const DefaultStyle({
+    Key key,
+    @required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+        style: TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
+        ),
+        child: child);
   }
 }

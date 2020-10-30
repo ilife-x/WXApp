@@ -12,10 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   ScrollController controller = ScrollController();
-
-//widget 数组
   List<String> pageList = [];
-
   @override
   void initState() {
     super.initState();

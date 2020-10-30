@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ui/Navigator/navigator_page_route.dart';
 import 'ui/Refresh/refresh_route.dart';
 import 'ui/common_route/my_drawer.dart';
 import 'ui/common_route/tabbar_route.dart';
@@ -46,6 +47,7 @@ class MainRoutes {
       TextFieldRoute.routeName: (context) => TextFieldRoute(),
       FormTestRoute.routeName: (context) => FormTestRoute(),
       GrandientRoute.routeName: (context) => GrandientRoute(),
+      NavigatorPageRoute.routeName: (contex) => NavigatorPageRoute(),
     };
   }
 }
