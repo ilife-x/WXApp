@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BuilderGridView extends StatelessWidget {
+  static const String routeName = "\BuilderGridView";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

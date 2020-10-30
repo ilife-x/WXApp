@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class SwitchAndCheckboxroute extends StatefulWidget {
+  static const String routeName = "\SwitchAndCheckboxroute";
+
   @override
   _SwitchAndCheckboxrouteState createState() => _SwitchAndCheckboxrouteState();
 }

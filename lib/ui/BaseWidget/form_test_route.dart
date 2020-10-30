@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FormTestRoute extends StatefulWidget {
+  static const String routeName = "\FormTestRoute";
+
   @override
   _FormTestRouteState createState() => _FormTestRouteState();
 }

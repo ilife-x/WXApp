@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ImageRoute extends StatefulWidget {
+  static const String routeName = "\ImageRoute";
+
   @override
   _ImageRouteState createState() => _ImageRouteState();
 }

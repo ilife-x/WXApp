@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TabbarRoute extends StatefulWidget {
+  static const String routeName = "\TabbarRoute";
+
   @override
   _TabbarRouteState createState() => _TabbarRouteState();
 }

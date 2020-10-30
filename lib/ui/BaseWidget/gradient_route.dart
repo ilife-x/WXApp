@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'GrandientButton.dart';
+import 'grandient_button_route.dart';
 
 class GrandientRoute extends StatefulWidget {
+  static const String routeName = "\GrandientRoute";
+
   @override
   _GrandientRouteState createState() => _GrandientRouteState();
 }

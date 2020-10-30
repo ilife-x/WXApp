@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ListViewSeparate extends StatelessWidget {
+  static const String routeName = "\ListViewSeparate";
+
   const ListViewSeparate({
     Key key,
   }) : super(key: key);

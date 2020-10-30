@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonStyleRoute extends StatefulWidget {
+  static const String routeName = "\ButtonStyleRoute";
   @override
   _ButtonStyleRouteState createState() => _ButtonStyleRouteState();
 }

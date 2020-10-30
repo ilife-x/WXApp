@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ScrollcontrollerTestRoute extends StatefulWidget {
+  static const String routeName = "\ScrollcontrollerTestRoute";
+
   @override
   _ScrollcontrollerTestRouteState createState() =>
       _ScrollcontrollerTestRouteState();

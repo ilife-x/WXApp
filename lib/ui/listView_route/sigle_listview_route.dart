@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Siglechild extends StatelessWidget {
+  static const String routeName = "\SigleChild";
   const Siglechild({
     Key key,
   }) : super(key: key);

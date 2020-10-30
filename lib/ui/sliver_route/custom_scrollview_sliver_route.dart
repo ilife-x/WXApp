@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class CustomScrollViewSliver extends StatelessWidget {
+  static const String routeName = "\CustomScrollViewSliver";
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(

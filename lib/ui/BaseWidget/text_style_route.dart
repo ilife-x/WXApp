@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class TextStyleRoute extends StatefulWidget {
+  static const String routeName = "\TextStyleRoute";
+
   @override
   _TextStyleRouteState createState() => _TextStyleRouteState();
 }

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
-class CountGridView extends StatelessWidget {
-  const CountGridView({
-    Key key,
-  }) : super(key: key);
+class NomalGridViewExtend extends StatelessWidget {
+  const NomalGridViewExtend({Key, key}) : super(key: key);
+  static const String routeName = "\NomalGridViewExtend";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('count gridview'),
+        title: Text("nomal extend grid view"),
       ),
-      body: GridView.count(
-        crossAxisCount: 3,
-        childAspectRatio: 1,
+      body: GridView(
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 120, childAspectRatio: 1),
         children: [
           Icon(Icons.ac_unit),
           Icon(Icons.directions_bike),

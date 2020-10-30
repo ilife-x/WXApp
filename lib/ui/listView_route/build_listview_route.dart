@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ListViewBuilder extends StatelessWidget {
+  static const String routeName = "\ListViewBuilder";
+
   const ListViewBuilder({
     Key key,
   }) : super(key: key);

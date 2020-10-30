@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
+  static const String routeName = "\MyDrawer";
   @override
   Widget build(BuildContext context) {
     return Drawer(

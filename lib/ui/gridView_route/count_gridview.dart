@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
-class ExtendGridView extends StatelessWidget {
-  const ExtendGridView({Key key}) : super(key: key);
+class CountGridView extends StatelessWidget {
+  const CountGridView({
+    Key key,
+  }) : super(key: key);
+  static const String routeName = "\CountGridView";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("extend gridView"),
+        title: Text('count gridview'),
       ),
-      body: GridView.extent(
-        maxCrossAxisExtent: 120,
-        childAspectRatio: 1.0,
+      body: GridView.count(
+        crossAxisCount: 3,
+        childAspectRatio: 1,
         children: [
           Icon(Icons.ac_unit),
           Icon(Icons.directions_bike),
