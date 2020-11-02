@@ -28,6 +28,7 @@ class _FormTestRouteState extends State<FormTestRoute> {
               children: [
                 TextFormField(
                   autocorrect: true,
+                  // autofocus: ,
                   controller: _unameController,
                   decoration: InputDecoration(
                       labelText: '用户名',

@@ -23,13 +23,18 @@ class _NomalNavigatorPageRouteState extends State<NomalNavigatorPageRoute> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             RaisedButton(
-                child: Text('返回'),
+                child: Text('返回1'),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  _clickBack(context);
                 })
           ],
         ),
       ),
     );
+  }
+
+//点击返回按钮
+  _clickBack(BuildContext context) {
+    Navigator.of(context).pop("hahahah");
   }
 }

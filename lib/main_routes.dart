@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ui/Navigator/custom_leading_navigator_route.dart';
 import 'ui/Navigator/navigator_page_route.dart';
 import 'ui/Refresh/refresh_route.dart';
 import 'ui/common_route/my_drawer.dart';
@@ -21,6 +22,7 @@ import 'ui/BaseWidget/switch_and_checkbox_route.dart';
 import 'ui/BaseWidget/text_style_route.dart';
 import 'ui/BaseWidget/image_route.dart';
 import 'ui/BaseWidget/text_field_route.dart';
+import 'ui/Navigator/nomal_navigator_page_route.dart';
 
 class MainRoutes {
   Map<String, WidgetBuilder> get routes {
@@ -48,6 +50,8 @@ class MainRoutes {
       FormTestRoute.routeName: (context) => FormTestRoute(),
       GrandientRoute.routeName: (context) => GrandientRoute(),
       NavigatorPageRoute.routeName: (contex) => NavigatorPageRoute(),
+      CoustomNavigatorPageRoute.routeName: (context) =>
+          CoustomNavigatorPageRoute(),
     };
   }
 }

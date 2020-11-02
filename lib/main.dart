@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
           itemCount: pageList.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(pageList[index].toString().substring(1)),
+              title: Text(pageList[index].toString().substring(0)),
               onTap: () {
                 Navigator.of(context).pushNamed(pageList[index]);
               },
