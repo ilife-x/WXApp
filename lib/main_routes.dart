@@ -22,7 +22,7 @@ import 'ui/BaseWidget/switch_and_checkbox_route.dart';
 import 'ui/BaseWidget/text_style_route.dart';
 import 'ui/BaseWidget/image_route.dart';
 import 'ui/BaseWidget/text_field_route.dart';
-import 'ui/Navigator/nomal_navigator_page_route.dart';
+import 'ui/net_work/dio_test_route.dart';
 
 class MainRoutes {
   Map<String, WidgetBuilder> get routes {
@@ -52,6 +52,7 @@ class MainRoutes {
       NavigatorPageRoute.routeName: (contex) => NavigatorPageRoute(),
       CoustomNavigatorPageRoute.routeName: (context) =>
           CoustomNavigatorPageRoute(),
+      NetWorkListRoute.routeName: (context) => NetWorkListRoute(),
     };
   }
 }

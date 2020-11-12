@@ -22,7 +22,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateRoute: (settings) {},
       home: Scaffold(
         appBar: AppBar(
           title: Text("home"),

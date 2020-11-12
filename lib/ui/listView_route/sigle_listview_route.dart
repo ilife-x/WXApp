@@ -21,7 +21,7 @@ class Siglechild extends StatelessWidget {
         child: Center(
           child: Column(
             children: str
-                .split("")
+                .split("") //分割
                 //每一个字母都用一个Text显示,字体为原来的两倍
                 .map((e) => Text(
                       e,

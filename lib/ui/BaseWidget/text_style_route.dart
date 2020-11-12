@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -128,13 +130,22 @@ class _TextStyleRouteState extends State<TextStyleRoute> {
               ),
             ),
           ),
-          Text.rich(TextSpan(children: [
-            TextSpan(text: "https://"),
+          Text.rich(
             TextSpan(
-                text: "www.baidu.com",
-                style: TextStyle(color: Colors.blue),
-                recognizer: TapGestureRecognizer()),
-          ])),
+              children: [
+                TextSpan(
+                    text: "https://",
+                    style: TextStyle(
+                      fontSize: 20,
+                    )),
+                TextSpan(
+                    text: "www.baidu.com",
+                    style: TextStyle(color: Colors.blue),
+                    recognizer: TapGestureRecognizer()),
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
           Padding(padding: EdgeInsets.only(top: 10)),
 
           DefaultTextStyle(
