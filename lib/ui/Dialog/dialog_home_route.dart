@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:wxapp/ui/listView_route/build_listview_route.dart';
@@ -63,23 +63,85 @@ class _DialogHomePageRouteState extends State<DialogHomePageRoute> {
                 showCustomDialog2();
               },
             ),
+            RaisedButton(
+              child: Text('弹窗七'),
+              onPressed: () {
+                showGenerDialog();
+              },
+            ),
+            RaisedButton(
+              child: Text('弹窗八,缩放动画'),
+              onPressed: () {
+                showScaleDialog();
+              },
+            ),
           ],
         ),
       ),
     );
   }
 
+//弹窗八
+  Future<void> showScaleDialog() {
+    return showCustomAlert(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("提示"),
+          content: Text("您确定要删除当前文件吗?"),
+          actions: <Widget>[
+            FlatButton(
+              child: Text("取消"),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            FlatButton(
+              child: Text("删除"),
+              onPressed: () {
+                // 执行删除操作
+                Navigator.of(context).pop(true);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+//弹窗七（有默认渐变动画）
+  Future<void> showGenerDialog() {
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: "背景色",
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return UnconstrainedBox(
+          child: Container(
+            color: Colors.blue[300],
+            width: 100,
+            height: 50,
+          ),
+        );
+      },
+    );
+  }
+
+//弹窗六
   Future<void> showCustomDialog2() {
+    //showDialog 它是Material组件库中提供的一个打开Material风格对话框的方法
     return showDialog(
         context: context,
+        //控制点击阴影部分，弹窗是否可以消失，默认yes
+        // barrierDismissible: false,
         builder: (context) {
-          return Dialog(
-              child: Container(
-            alignment: Alignment.center,
-            color: Colors.red,
-            width: 100,
-            height: 100,
-          ));
+          //自定义弹窗样式
+          return UnconstrainedBox(
+            child: Container(
+              alignment: Alignment.center,
+              color: Colors.red,
+              width: 100,
+              height: 50,
+            ),
+          );
         });
   }
 
@@ -261,5 +323,54 @@ class _DialogHomePageRouteState extends State<DialogHomePageRoute> {
             ],
           );
         });
+  }
+
+  Future<Void> showCustomAlert<T>(
+      {@required BuildContext context,
+      bool barrierDismissible = true,
+      WidgetBuilder builder}) {
+    final ThemeData theam = Theme.of(context, shadowThemeOnly: true);
+
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: barrierDismissible,
+      barrierColor: Colors.black87,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      transitionDuration: Duration(microseconds: 150),
+      //自定义动画
+      transitionBuilder: _buildMaterialDialogTransitions,
+
+      pageBuilder: (BuildContext context, animation, secondaryAnimation) {
+        final Builder pagechild = Builder(
+          builder: builder,
+        );
+        return SafeArea(
+          child: Builder(builder: (BuildContext context) {
+            return theam != null
+                ? Theme(
+                    data: theam,
+                    child: pagechild,
+                  )
+                : pagechild;
+          }),
+        );
+      },
+    );
+  }
+
+  Widget _buildMaterialDialogTransitions(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
+    // 使用缩放动画
+    return ScaleTransition(
+      //自定义的动画
+      scale: CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeOut,
+      ),
+      child: child,
+    );
   }
 }
